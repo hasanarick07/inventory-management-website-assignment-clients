@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "CB Hornet 160R ABS",
+    "picture": "https://static.autox.com/uploads/2021/11/Honda-CB-Hornet-160R-ABS.jpg",
+    "price": 255000,
+    "text": "Hornet ABS powered by 162.7 cc which generates Maximum power 14.9 bhp @ 8500 rpm and its maximum torque is 14.5 Nm @ 6500 rpm. Honda CB Hornet 160R ABS mileage is 45 KM per Liter (approx). ",
+    "supplier_name":"Arick",
+    "quantity":3
+  },
+  {
+    "id": 2,
+    "name": "Honda CBR150R Repsol",
+    "picture": "https://motoreds.files.wordpress.com/2014/11/marquez-honda-cbr150r-lokal-repsol-edition.jpg",
+    "price": 480000,
+    "text": "Repsol powered by 149.16 cc which generates Maximum power 12.6 KW @ 9000 rpm and its maximum torque is 13.7 Nm @ 7000 rpm. Honda CBR150R Repsol mileage is 40 KM per Liter (approx).",
+    "supplier_name":"Arick",
+    "quantity":3
+  },
+  {
+    "id": 3,
+    "name": "Honda CBR 150R",
+    "picture": "https://i.ytimg.com/vi/grYsFj7RPso/maxresdefault.jpg",
+    "price": 450000,
+    "text": "CBR powered by 149.4 cc which generates Maximum power 13.1 Kw, 10500rpm and its maximum torque is 12.66Nm @ 8500rpm. Honda CBR 150R mileage is 45 KM per Liter (approx).",
+    "supplier_name":"Arick",
+    "quantity":3
+  },
+  {
+    "id": 4,
+    "name": "Yamaha Fazer Fi v2",
+    "picture": "https://i.ytimg.com/vi/r1eBruken0I/maxresdefault.jpg",
+    "price": 271000,
+    "text": "Fazer v2 powered by 149 cc which generates Maximum power 12.9 Bhp @ 8000 rpm and its maximum torque is 12.8 Nm @ 6000 rpm. Yamaha Fazer Fi v2 mileage is 55 KM per Liter (approx).",
+    "supplier_name":"Arick",
+    "quantity":3
+  },
+  {
+    "id": 5,
+    "name": "Yamaha FZS V3",
+    "picture": "https://i.ytimg.com/vi/ZguwhvFF_-Y/maxresdefault.jpg",
+    "price": 240500,
+    "text": "FZS v3 powered by 149 cc which generates Maximum power 13.2PS @ 8000rpm and its maximum torque is 12.8 Nm @ 6000 rpm. Yamaha FZS V3 mileage is 45 KM per Liter (approx).",
+    "supplier_name":"Arick",
+    "quantity":3
+  },
+  {
+    "id": 6,
+    "name": "Yamaha MT 15",
+    "picture": "https://images.carandbike.com/bike-images/large/yamaha/mt-15-v20/yamaha-mt-15-v20.jpg?v=5",
+    "price": 410000,
+    "text": "MT 15 powered by 155 cc which generates Maximum power 19 bhp @ 10,000 rpm and its maximum torque is 14.7 Nm @ 8500 rpm. Yamaha MT 15 mileage is 45 KM per Liter (approx).",
+    "supplier_name":"Arick",
+    "quantity":3
+  }
+]
