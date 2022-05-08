@@ -22,31 +22,51 @@ const Header = () => {
     <div>
       <div className="navbar bg-base-100">
         <div className="flex-1">
-          <div onClick={handleHome} className="navbar-center flex">
+          <div
+            onClick={handleHome}
+            className="navbar-center flex items-center justify-center"
+          >
             <img
-              className="w-10 h-10 mr-2 rounded-full bg-slate-100"
+              className="md:w-16 md:h-16 w-10 h-10 mr-2 rounded-full bg-slate-100"
               src={bike}
               alt=""
             />
-            <span className=" text-xl text-slate-100">BIKER</span>
+            <span className="md:text-6xl text-3xl font-bold text-slate-100">
+              BIKER
+            </span>
           </div>
         </div>
         <div className="flex-none">
           {user ? (
             ""
           ) : (
-            <Link className="ml-2" to="/login">
+            <Link
+              className="ml-2 hover:bg-gray-700 hover:rounded-md hover:text-gray-100 hover:p-1"
+              to="/login"
+            >
               Log In
             </Link>
           )}
           {user ? (
             ""
           ) : (
-            <Link className="ml-2" to="/register">
+            <Link
+              className="ml-2 hover:bg-gray-700 hover:rounded-md hover:text-gray-100 hover:p-1"
+              to="/register"
+            >
               Register
             </Link>
           )}
-          {user ? <div onClick={signOutButton}>Log Out</div> : ""}
+          {user ? (
+            <div
+              className="hover:bg-gray-700 hover:rounded-md hover:text-gray-100 hover:p-1"
+              onClick={signOutButton}
+            >
+              Log Out
+            </div>
+          ) : (
+            ""
+          )}
           <div className="dropdown dropdown-end">
             <label tabindex="0" className="btn btn-ghost btn-circle">
               <div className="indicator">
@@ -97,45 +117,29 @@ const Header = () => {
             </label>
             <ul
               tabindex="0"
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-compact text-left dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-36"
             >
-              <li>
+              <div className="hover:bg-gray-700 hover:rounded-md hover:text-gray-100 hover:p-1">
                 <Link to="/home">Home</Link>
-              </li>
-              <li>
-                {user ? (
-                  <Link className="ml-2" to="/myBikes">
-                    My Bikes
-                  </Link>
-                ) : (
-                  ""
-                )}
-              </li>
-              <li>
-                {user ? (
-                  <Link className="ml-2" to="/manageInventories">
-                    Manage Bikes
-                  </Link>
-                ) : (
-                  ""
-                )}
-              </li>
-              <li>
-                {user ? (
-                  <Link className="ml-2" to="/addNewBikes">
-                    Add Bikes
-                  </Link>
-                ) : (
-                  ""
-                )}
-              </li>
-              <li>
+              </div>
+              <div className="hover:bg-gray-700 hover:rounded-md hover:text-gray-100 hover:p-1">
+                {user ? <Link to="/myBikes">My Bikes</Link> : ""}
+              </div>
+              <div className="hover:bg-gray-700 hover:rounded-md hover:text-gray-100 hover:p-1">
+                {user ? <Link to="/manageInventories">Manage Bikes</Link> : ""}
+              </div>
+              <div className="hover:bg-gray-700 hover:rounded-md hover:text-gray-100 hover:p-1">
+                {user ? <Link to="/addNewBikes">Add Bikes</Link> : ""}
+              </div>
+              <div className="hover:bg-gray-700 hover:rounded-md hover:text-gray-100 hover:p-1">
                 <Link to="/blogs">Blogs</Link>
-              </li>
-              <li>
+              </div>
+              <div className="hover:bg-gray-700 hover:rounded-md hover:text-gray-100 hover:p-1">
                 <Link to="/about">About Us</Link>
-              </li>
-              <li>{user ? <div onClick={signOutButton}>Log Out</div> : ""}</li>
+              </div>
+              <div className="hover:bg-gray-700 hover:rounded-md hover:text-gray-100 hover:p-1">
+                {user ? <div onClick={signOutButton}>Log Out</div> : ""}
+              </div>
             </ul>
           </div>
         </div>
