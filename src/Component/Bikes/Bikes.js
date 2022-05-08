@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import Price from "../Price/Price";
+import Bike from "../Bike/Bike";
 
-const Pricing = () => {
-  const [price, setPrice] = useState([]);
+const Bikes = () => {
+  const [bikes, setBikes] = useState([]);
   useEffect(() => {
-    fetch("prices.json")
+    fetch("https://agile-bastion-62567.herokuapp.com/products")
       .then(res => res.json())
-      .then(data => setPrice(data));
+      .then(data => setBikes(data));
   }, []);
   return (
     <div className="">
@@ -14,12 +14,12 @@ const Pricing = () => {
         Bikes
       </h2>
       <div className="grid md:grid-cols-3 gap-4">
-        {price.map(price => (
-          <Price key={price.id} price={price}></Price>
+        {bikes.slice(0, 6).map(bike => (
+          <Bike key={bike.id} bike={bike}></Bike>
         ))}
       </div>
     </div>
   );
 };
 
-export default Pricing;
+export default Bikes;

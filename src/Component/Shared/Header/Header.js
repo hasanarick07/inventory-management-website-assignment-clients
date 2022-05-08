@@ -1,21 +1,52 @@
+import { signOut } from "firebase/auth";
 import React from "react";
-import arranger from "../../../images/bike.png";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { Link, useNavigate } from "react-router-dom";
+import auth from "../../../firebase.init";
+import bike from "../../../images/bike.png";
 
 const Header = () => {
+  const [user] = useAuthState(auth);
+  // console.log(user?.photoURL);
+  const navigate = useNavigate();
+  const handleHome = () => {
+    navigate("/");
+  };
+  const signOutButton = () => {
+    signOut(auth);
+    if (!user) {
+      navigate("/login");
+    }
+  };
   return (
     <div>
       <div className="navbar bg-base-100">
         <div className="flex-1">
-          <div className="navbar-center flex">
+          <div onClick={handleHome} className="navbar-center flex">
             <img
               className="w-10 h-10 mr-2 rounded-full bg-slate-100"
-              src={arranger}
+              src={bike}
               alt=""
             />
             <span className=" text-xl text-slate-100">BIKER</span>
           </div>
         </div>
         <div className="flex-none">
+          {user ? (
+            ""
+          ) : (
+            <Link className="ml-2" to="/login">
+              Log In
+            </Link>
+          )}
+          {user ? (
+            ""
+          ) : (
+            <Link className="ml-2" to="/register">
+              Register
+            </Link>
+          )}
+          {user ? <div onClick={signOutButton}>Log Out</div> : ""}
           <div className="dropdown dropdown-end">
             <label tabindex="0" className="btn btn-ghost btn-circle">
               <div className="indicator">
@@ -54,10 +85,14 @@ const Header = () => {
           <div className="dropdown dropdown-end">
             <label tabindex="0" className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
-                <img
-                  src="https://api.lorem.space/image/face?hash=33791"
-                  alt=""
-                />
+                {user?.photoURL ? (
+                  <img src={user?.photoURL} alt="" />
+                ) : (
+                  <img
+                    src="https://www.mcicon.com/wp-content/uploads/2021/01/People_User_1-copy-4.jpg"
+                    alt=""
+                  />
+                )}
               </div>
             </label>
             <ul
@@ -65,14 +100,42 @@ const Header = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <span>Profile</span>
+                <Link to="/home">Home</Link>
               </li>
               <li>
-                <span>Settings</span>
+                {user ? (
+                  <Link className="ml-2" to="/myBikes">
+                    My Bikes
+                  </Link>
+                ) : (
+                  ""
+                )}
               </li>
               <li>
-                <span>Logout</span>
+                {user ? (
+                  <Link className="ml-2" to="/manageInventories">
+                    Manage Bikes
+                  </Link>
+                ) : (
+                  ""
+                )}
               </li>
+              <li>
+                {user ? (
+                  <Link className="ml-2" to="/addNewBikes">
+                    Add Bikes
+                  </Link>
+                ) : (
+                  ""
+                )}
+              </li>
+              <li>
+                <Link to="/blogs">Blogs</Link>
+              </li>
+              <li>
+                <Link to="/about">About Us</Link>
+              </li>
+              <li>{user ? <div onClick={signOutButton}>Log Out</div> : ""}</li>
             </ul>
           </div>
         </div>
