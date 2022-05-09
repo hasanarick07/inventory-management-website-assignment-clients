@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Statistic = () => {
+  const [bikes, setBikes] = useState([]);
+  // console.log(bikes[0]);
+  useEffect(() => {
+    fetch("https://agile-bastion-62567.herokuapp.com/products")
+      .then(res => res.json())
+      .then(data => {
+        setBikes(data);
+      });
+  }, []);
   return (
     <div>
       <div className="text-gray-400 body-font">
@@ -27,11 +36,15 @@ const Statistic = () => {
               <p className="leading-relaxed">Happy Customer</p>
             </div>
             <div className="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
-              <h2 className="title-font font-medium text-3xl text-gray-100">35</h2>
+              <h2 className="title-font font-medium text-3xl text-gray-100">
+                35
+              </h2>
               <p className="leading-relaxed">Stock</p>
             </div>
             <div className="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
-              <h2 className="title-font font-medium text-3xl text-gray-100">6</h2>
+              <h2 className="title-font font-medium text-3xl text-gray-100">
+                {bikes.length}
+              </h2>
               <p className="leading-relaxed">variety of Bike</p>
             </div>
           </div>

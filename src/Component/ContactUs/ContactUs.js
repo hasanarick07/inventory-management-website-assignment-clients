@@ -1,6 +1,11 @@
 import React from "react";
+import toast from "react-hot-toast";
 
 const ContactUs = () => {
+  const submitButton = e => {
+    toast.success("Thank You For Contact with US");
+    e.target.reset();
+  };
   return (
     <div>
       <div class="text-gray-200 body-font relative">
@@ -14,7 +19,7 @@ const ContactUs = () => {
             </p>
           </div>
           <div class="lg:w-1/2 md:w-2/3 mx-auto">
-            <div class="flex flex-wrap -m-2">
+            <form onSubmit={submitButton} class="flex flex-wrap -m-2">
               <div class="p-2 w-1/2">
                 <div class="relative">
                   <label for="name" class="leading-7 text-sm text-gray-200">
@@ -58,10 +63,10 @@ const ContactUs = () => {
               </div>
               <div class="p-2 w-full">
                 <button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded-3xl hover:shadow-inner shadow-2xl text-lg">
-                  Button
+                  Submit
                 </button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
