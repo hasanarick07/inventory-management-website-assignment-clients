@@ -7,11 +7,14 @@ const MyBikes = () => {
   const [user] = useAuthState(auth);
   const [bikes, setBikes] = useState([]);
   const email = user?.email;
-  const url = `https://agile-bastion-62567.herokuapp.com/products?email=${email}`;
+  const url = `https://agile-bastion-62567.herokuapp.com/myProducts?email=${email}`;
   useEffect(() => {
     fetch(url)
       .then(res => res.json())
-      .then(data => setBikes(data));
+      .then(data => {
+        setBikes(data);
+        console.log(url);
+      });
   }, [url]);
   return (
     <div>
