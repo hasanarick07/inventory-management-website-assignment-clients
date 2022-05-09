@@ -8,6 +8,7 @@ import auth from "../../firebase.init";
 import Loading from "../Loading/Loading";
 import { toast } from "react-hot-toast";
 import GoogleLogIn from "../Shared/GoogleLogIn/GoogleLogIn";
+import axios from "axios";
 
 const Login = () => {
   const [loginEmail, setLoginEmail] = useState("");
@@ -22,13 +23,12 @@ const Login = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   if (user) {
-    navigate(from, { replace: true });
+    console.log(user);
   }
-
   if (loading || sending) {
     <Loading></Loading>;
   }
-  const loginFormSubmit = e => {
+  const loginFormSubmit = async e => {
     e.preventDefault();
     const emailVerify = /\S+@\S+\.\S+/;
     const verifiedEmail = emailVerify.test(logEmail.current.value);
@@ -48,6 +48,12 @@ const Login = () => {
       setLoginPassword(logPassword.current.value);
     }
     signInWithEmailAndPassword(loginEmail, loginPassword);
+    const { data } = await axios.post(
+      "https://agile-bastion-62567.herokuapp.com/login",
+      { loginEmail }
+    );
+    localStorage.setItem("accessToken", data.accessToken);
+    navigate(from, { replace: true });
   };
 
   if (error || resetError) {
