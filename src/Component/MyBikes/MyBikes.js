@@ -9,9 +9,7 @@ const MyBikes = () => {
   const email = user?.email;
   const url = `https://agile-bastion-62567.herokuapp.com/myProducts?email=${email}`;
   useEffect(() => {
-    fetch(url,{
-      headers:{authorization: `Bearer ${localStorage.getItem('accessToken')}`}
-    })
+    fetch(url)
       .then(res => res.json())
       .then(data => {
         setBikes(data);
