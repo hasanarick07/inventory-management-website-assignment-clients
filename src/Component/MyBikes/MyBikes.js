@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import Loading from "../Loading/Loading";
 import MyBike from "../MyBike/MyBike";
 
 const MyBikes = () => {
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const [bikes, setBikes] = useState([]);
   const email = user?.email;
+  console.log(email);
   const url = `https://agile-bastion-62567.herokuapp.com/myProducts?email=${email}`;
   useEffect(() => {
     fetch(url)
@@ -16,6 +18,9 @@ const MyBikes = () => {
         console.log(url);
       });
   }, [url]);
+  if (loading) {
+    <Loading />;
+  }
   return (
     <div>
       <h2 className="p-3 inline-block  text-4xl font-semibold	mb-3 text-gray-100">
